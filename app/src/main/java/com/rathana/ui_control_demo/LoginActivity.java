@@ -20,7 +20,6 @@ public class LoginActivity extends AppCompatActivity {
         userName=findViewById(R.id.userName);
         password=findViewById(R.id.password);
 
-
     }
 
     public void onLogin(View v){
@@ -30,10 +29,12 @@ public class LoginActivity extends AppCompatActivity {
 
         if(username.equals("admin") && pass.equals("admin")){
             startActivity(new Intent(this,MainActivity.class));
-            Toast.makeText(this, "login success", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "login success",
+                    Toast.LENGTH_SHORT).show();
             finish();
         }else{
-            Toast.makeText(this, "login fail", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "login fail",
+                    Toast.LENGTH_SHORT).show();
         }
     }
 
