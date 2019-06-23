@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">UI_control_demo</string>
+
+    <string name="content">content</string>
 </resources>

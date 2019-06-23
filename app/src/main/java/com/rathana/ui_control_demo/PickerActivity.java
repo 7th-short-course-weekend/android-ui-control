@@ -7,11 +7,15 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
+import com.rathana.ui_control_demo.util.MyTimePicker;
+
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Field;
 import java.util.Calendar;
 
-public class PickerActivity extends AppCompatActivity {
+public class PickerActivity extends AppCompatActivity
+implements MyTimePicker.OnPickTimeListener {
 
     TextView datePickerResult;
     TextView timePickerResult;
@@ -26,7 +30,11 @@ public class PickerActivity extends AppCompatActivity {
 
     }
 
+
+
     public void onPickTime(View view){
+
+        new MyTimePicker().show(getSupportFragmentManager(),"time picker");
 
     }
 
@@ -42,7 +50,7 @@ public class PickerActivity extends AppCompatActivity {
         int m=calendar.get(Calendar.MONTH);
         int day=calendar.get(Calendar.DAY_OF_MONTH);
 
-        DatePickerDialog datePickerDialog=new DatePickerDialog(
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
                 listener,
                 yy,
@@ -63,4 +71,8 @@ public class PickerActivity extends AppCompatActivity {
         }
     };
 
+    @Override
+    public void onPickTimeResult(String time) {
+        timePickerResult.setText(time);
+    }
 }
